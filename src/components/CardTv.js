@@ -1,13 +1,13 @@
-import './CardMovies.scss';
+import './CardTv.scss';
 
 
-const CardMovies = ({ title, image }) => {
+const CardTv = ({ title, image }) => {
     return (
-        <div className="CardMovies">
+        <div className="CardTv">
             <img src={`https://image.tmdb.org/t/p/w500${image}`}/>
             <h3>{title}</h3>
         </div>
     )
 }
 
-export default CardMovies;
+export default CardTv; 
