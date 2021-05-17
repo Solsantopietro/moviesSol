@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import CardMedia from '../views/CardMedia';
 
-import { URL_PELICULAS_TENDENCIA, URL_SERIES_TENDENCIA, APIKEY, cortarArray } from '../utils/variables'
+import { URL_PELICULAS_TENDENCIA, URL_SERIES_TENDENCIA, APIKEY } from '../utils/variables'
 import useFetch from '../hooks/useFetch'
-
+import { cortarArray } from '../utils/helpers'
 const Home = () => {
 
   // const [peliculas, setPeliculas] = useState([])
@@ -30,10 +30,10 @@ const Home = () => {
   const peliculas = useFetch (`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
   const series = useFetch (`${URL_SERIES_TENDENCIA}api_key=${APIKEY}`)
 
-  console.log(peliculas)
-  const filtradoDePeliculas = peliculas.slice(0, 5)
-  const filtradoDeSeries = series.slice(0, 5)
 
+
+  const filtradoDePeliculas = cortarArray(peliculas)
+  const filtradoDeSeries = cortarArray(series)
 
 
   return (
