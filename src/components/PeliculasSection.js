@@ -7,8 +7,7 @@ const PeliculasSection = ({peliculas, titulo}) => {
     <section>
     <h2>{titulo}</h2>
     <div>
-      {
-        peliculas.map(pelicula => (
+      {peliculas.map(pelicula => (
           <Link to={`/detalle/${pelicula.id}`}>
           <article>
          {pelicula.title}

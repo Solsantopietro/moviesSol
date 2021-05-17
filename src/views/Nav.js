@@ -1,5 +1,5 @@
 import Home from '../components/Home';
-import PeliculasSection from '../components/PeliculasSection';
+import Peliculas from './Peliculas';
 import Tv from './Tv';
 
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
@@ -20,7 +20,7 @@ const Nav = () => {
       </nav>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/peliculas" component={PeliculasSection} />
+        <Route exact path="/peliculas" component={Peliculas} />
         <Route exact path="/tv" component={Tv} />
       </Switch>
       </BrowserRouter>
