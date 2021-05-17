@@ -1,36 +1,34 @@
-
 import { useState, useEffect } from 'react';
-import CardMovies from './CardMovies';
-import CardTv from './CardTv';
+import CardMedia from '../views/CardMedia';
 
-const APIKEY = "2818dbb3f2d93463121e46fed8a11a9b";
-
-const URL_PELICULAS_TENDENCIA = 'https://api.themoviedb.org/3/movie/now_playing?'
-const URL_SERIES_TENDENCIA = 'https://api.themoviedb.org/3/trending/tv/week?'
-
+import { URL_PELICULAS_TENDENCIA, URL_SERIES_TENDENCIA, APIKEY, cortarArray } from '../utils/variables'
+import useFetch from '../hooks/useFetch'
 
 const Home = () => {
 
-  const [peliculas, setPeliculas] = useState([])
-  const [series, setSeries] = useState([])
+  // const [peliculas, setPeliculas] = useState([])
+  // const [series, setSeries] = useState([])
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    fetch(`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
-      .then(res => res.json())
-      .then(data => {
-        setPeliculas(data.results)
+  //   fetch(`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setPeliculas(data.results)
 
-      })
-    fetch(`${URL_SERIES_TENDENCIA}api_key=${APIKEY}&page=1`)
-      .then(res => res.json())
-      .then(data => {
-        setSeries(data.results)
+  //     })
+  //   fetch(`${URL_SERIES_TENDENCIA}api_key=${APIKEY}&page=1`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setSeries(data.results)
 
-      })
+  //     })
 
-  }, []);
+  // }, []);
+
+  const peliculas = useFetch (`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
+  const series = useFetch (`${URL_SERIES_TENDENCIA}api_key=${APIKEY}`)
 
   console.log(peliculas)
   const filtradoDePeliculas = peliculas.slice(0, 5)
@@ -41,10 +39,10 @@ const Home = () => {
   return (
     <div className="Home">
       <h2>Home</h2>
-      <section className="sectionTv">
+      <section className="sectionMovie">
         <h1>Películas que son tendencia</h1>
         {filtradoDePeliculas.map(pelicula =>
-          <CardMovies
+          <CardMedia
             key={pelicula.id}
             image={pelicula.poster_path}
             title={pelicula.title}
@@ -55,7 +53,7 @@ const Home = () => {
       <section className="sectionTv">
         <h1>Series que son tendencia</h1>
         {filtradoDeSeries.map(serie =>
-          <CardTv
+          <CardMedia
             key={serie.id}
             image={serie.poster_path}
             title={serie.name}
