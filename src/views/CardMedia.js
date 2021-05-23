@@ -1,14 +1,23 @@
 import './CardMedia.scss';
+import styled, { ThemeProvider } from 'styled-components'
+import { theme } from '../styles/theme'
+
+
+const StyledCard = styled.article`
+    background-color:  ${({ background }) => background};
+`
+const Title = styled.h3`
+    ${({ theme }) => theme.font.families.title};
+`
 
 
 const CardMedia = ({ title, image, name }) => {
     return (
-        <div className="CardMedia">
+        <StyledCard  theme={theme} className="CardMedia">
             <img src={`https://image.tmdb.org/t/p/w500${image}`}/>
-            <h3>{title}</h3>
-            <h3>{name}</h3>
-
-        </div>
+            <Title>{title}</Title>
+            <Title>{name}</Title>
+        </StyledCard>
     )
 }
 
