@@ -2,47 +2,19 @@ import CardMedia from './CardMedia'
 import useFetch from '../hooks/useFetch'
 import { URL_PELICULAS_TENDENCIA, URL_PELICULAS_MEJORES_CRITICAS, URL_PELICULAS_ESTRENO, URL_PELICULAS_CINES, APIKEY } from '../utils/variables'
 import { cortarArray } from '../utils/helpers'
-    
+import styled, { ThemeProvider } from 'styled-components'
+import { theme } from '../styles/theme'
+import { Flex, Title, Icon } from '../utils/Commons'
+import { Link } from 'react-router-dom'
+
+
 
 const Peliculas = () => {
 
-  // const [peliculasTendencia, setPeliculasTendencia] = useState([])
-  // const [peliculasCriticas, setPeliculasCriticas] = useState([])
-  // const [peliculasEstreno, setPeliculasEstreno] = useState([])
-  // const [peliculasCines, setPeliculasCines] = useState([])
-  // const [filtradoDePeliculas, setFiltradoDePeliculas] = useState([])
-
-    // useEffect(() => {
-    //     fetch(`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setPeliculasTendencia(data.results)
-
-    //   })
-    // fetch(`${URL_PELICULAS_MEJORES_CRITICAS}api_key=${APIKEY}&page=1`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setPeliculasCriticas(data.results)
-
-    //   })
-    //   fetch(`${URL_PELICULAS_ESTRENO}api_key=${APIKEY}&page=1`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setPeliculasEstreno(data.results)
-
-    //   })
-    //   fetch(`${URL_PELICULAS_CINES}api_key=${APIKEY}&page=1`)
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     setPeliculasCines(data.results)
-
-    //   })
-    // })
-
-  const peliculasTendencia = useFetch (`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
-  const peliculasCriticas = useFetch (`${URL_PELICULAS_MEJORES_CRITICAS}api_key=${APIKEY}`)
-  const peliculasEstreno = useFetch (`${URL_PELICULAS_ESTRENO}api_key=${APIKEY}`)
-  const peliculasCines = useFetch (`${URL_PELICULAS_CINES}api_key=${APIKEY}`)
+  const peliculasTendencia = useFetch(`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
+  const peliculasCriticas = useFetch(`${URL_PELICULAS_MEJORES_CRITICAS}api_key=${APIKEY}`)
+  const peliculasEstreno = useFetch(`${URL_PELICULAS_ESTRENO}api_key=${APIKEY}`)
+  const peliculasCines = useFetch(`${URL_PELICULAS_CINES}api_key=${APIKEY}`)
 
 
   const filtradoDePeliculasTendencia = cortarArray(peliculasTendencia)
@@ -51,56 +23,95 @@ const Peliculas = () => {
   const filtradoDePeliculasCines = cortarArray(peliculasCines)
 
 
-    
-    return (
-        <section className="Peliculas">
-          <div className="PeliculasPopulares">
-            <h2>Peliculas populares</h2>
+
+  return (
+    <ThemeProvider theme={theme}>
+
+      <section className="Peliculas">
+        <div className="PeliculasPopulares">
+          <Link><Title>Peliculas populares
+          <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </Icon>
+          </Title></Link>
+          <Flex>
             {filtradoDePeliculasTendencia.map(pelicula =>
-          <CardMedia
-            key={pelicula.id}
-            image={pelicula.poster_path}
-            title={pelicula.title}
+              <CardMedia
+                key={pelicula.id}
+                id={pelicula.id}
+                type='movie'
+                image={pelicula.poster_path}
+                title={pelicula.title}
 
-          />
-        )}
-          </div>
-          <div className="PeliculasCriticas">
-            <h2>Peliculas con mejores criticas</h2>
+              />
+            )}
+          </Flex>
+
+        </div>
+        <div className="PeliculasCriticas">
+          <Link><Title>Peliculas con mejores criticas
+          <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </Icon>
+          </Title></Link>
+          <Flex>
             {filtradoDePeliculasCriticas.map(pelicula =>
-          <CardMedia
-            key={pelicula.id}
-            image={pelicula.poster_path}
-            title={pelicula.title}
+              <CardMedia
+                key={pelicula.id}
+                id={pelicula.id}
+                type='movie'
+                image={pelicula.poster_path}
+                title={pelicula.title}
 
-          />
-        )}
-          </div>
-          <div className="PeliculasEstreno">
-            <h2>Peliculas a estrenarse</h2>
+              />
+            )}
+          </Flex>
+
+        </div>
+        <div className="PeliculasEstreno">
+          <Link><Title>Peliculas a estrenarse
+          <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </Icon>
+          </Title></Link>
+          <Flex>
             {filtradoDePeliculasEstreno.map(pelicula =>
-          <CardMedia
-            key={pelicula.id}
-            image={pelicula.poster_path}
-            title={pelicula.title}
+              <CardMedia
+                key={pelicula.id}
+                id={pelicula.id}
+                type='movie'
+                image={pelicula.poster_path}
+                title={pelicula.title}
 
-          />
-        )}
-          </div>
-          <div className="PeliculasCines">
-            <h2>Peliculas en cines</h2>
+              />
+            )}
+          </Flex>
+
+        </div>
+        <div className="PeliculasCines">
+          <Link><Title>Peliculas en cines
+          <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </Icon>
+          </Title></Link>
+          <Flex>
             {filtradoDePeliculasCines.map(pelicula =>
-          <CardMedia
-            key={pelicula.id}
-            image={pelicula.poster_path}
-            title={pelicula.title}
+              <CardMedia
+                key={pelicula.id}
+                id={pelicula.id}
+                type='movie'
+                image={pelicula.poster_path}
+                title={pelicula.title}
 
-          />
-        )}
-          </div>
+              />
+            )}
+          </Flex>
 
-        </section>
-    )
+        </div>
+
+      </section>
+    </ThemeProvider>
+  )
 }
 
 export default Peliculas;
