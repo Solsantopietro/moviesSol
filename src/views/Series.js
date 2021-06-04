@@ -8,9 +8,9 @@ import CardMedia from './CardMedia'
 
 const Series = () => {
 
-  const seriesTendencia = useFetch(`${URL_SERIES_TENDENCIA}api_key=${APIKEY}`)
-  const seriesCriticas = useFetch(`${URL_SERIES_MEJORES_CRITICAS}api_key=${APIKEY}`)
-  const seriesAire = useFetch(`${URL_SERIES_AIRE}api_key=${APIKEY}`)
+  const seriesTendencia = useFetch(`${URL_SERIES_TENDENCIA}api_key=${APIKEY}&language=es-ES`)
+  const seriesCriticas = useFetch(`${URL_SERIES_MEJORES_CRITICAS}api_key=${APIKEY}&language=es-ES`)
+  const seriesAire = useFetch(`${URL_SERIES_AIRE}api_key=${APIKEY}&language=es-ES`)
 
 
   const filtradoDeSeriesTendencia = cortarArray(seriesTendencia)

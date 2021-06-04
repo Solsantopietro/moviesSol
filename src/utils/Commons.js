@@ -4,6 +4,7 @@ export const Flex = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: flex-start;
 `
 
 export const Title = styled.h1`
@@ -11,7 +12,7 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.families.h2};
   font-weight: ${({ theme }) => theme.fonts.weight.medium};
-  font-size: ${({ theme }) => theme.fonts.size.h1};
+  font-size: ${({ theme }) => theme.fonts.size.h1 || theme.fonts.size.h2};
 `
 export const Icon = styled.svg`
   color: ${({ theme }) => theme.colors.secondary};

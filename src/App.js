@@ -3,6 +3,8 @@ import Home from './components/Home';
 import Peliculas from './views/Peliculas';
 import Series from './views/Series';
 import Detalle from './views/Detalle';
+import CatalogueSection from './views/CatalogueSection';
+
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
@@ -82,6 +84,7 @@ const App = () => {
                   <Route exact path="/peliculas" component={Peliculas} />
                   <Route exact path="/series" component={Series} />
                   <Route exact path="/detalle/:id/:type" component={Detalle} />
+                  <Route exact path="/:type/:catalogue" component={CatalogueSection} />
 
                 </Switch>
               </BrowserRouter>

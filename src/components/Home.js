@@ -24,7 +24,7 @@ const Home = () => {
     <div className="Home">
       <ThemeProvider theme={theme}>
         <SectionMedia className="sectionMovie">
-          <Link><Title>Películas que son tendencia
+          <Link to={`/${type}/${catalogue}`}><Title>Películas que son tendencia
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </Icon>
@@ -42,7 +42,7 @@ const Home = () => {
           </Flex>
         </SectionMedia>
         <SectionMedia className="sectionTv">
-        <Link><Title>Series que son tendencia
+        <Link to={`/${type}/${catalogue}`}><Title>Series que son tendencia
             <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>

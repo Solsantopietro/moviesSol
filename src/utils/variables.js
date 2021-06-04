@@ -18,6 +18,3 @@ export const convertirAMayusculas = string => {
     return string.toUpperCase()
 }
 
-//image
-
-export const BackdropPath= 'https://image.tmdb.org/t/p/original${detalle.backdrop_path}'

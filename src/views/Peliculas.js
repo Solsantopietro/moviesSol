@@ -11,10 +11,10 @@ import { Link } from 'react-router-dom'
 
 const Peliculas = () => {
 
-  const peliculasTendencia = useFetch(`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}`)
-  const peliculasCriticas = useFetch(`${URL_PELICULAS_MEJORES_CRITICAS}api_key=${APIKEY}`)
-  const peliculasEstreno = useFetch(`${URL_PELICULAS_ESTRENO}api_key=${APIKEY}`)
-  const peliculasCines = useFetch(`${URL_PELICULAS_CINES}api_key=${APIKEY}`)
+  const peliculasTendencia = useFetch(`${URL_PELICULAS_TENDENCIA}api_key=${APIKEY}&language=es-ES`)
+  const peliculasCriticas = useFetch(`${URL_PELICULAS_MEJORES_CRITICAS}api_key=${APIKEY}&language=es-ES`)
+  const peliculasEstreno = useFetch(`${URL_PELICULAS_ESTRENO}api_key=${APIKEY}&language=es-ES`)
+  const peliculasCines = useFetch(`${URL_PELICULAS_CINES}api_key=${APIKEY}&language=es-ES`)
 
 
   const filtradoDePeliculasTendencia = cortarArray(peliculasTendencia)
