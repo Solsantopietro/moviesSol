@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components'
-import { Flex, Title  } from '../utils/Commons'
+import { Flex, Title, Icon, Backdrop} from '../utils/Commons'
 
 
 

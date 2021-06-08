@@ -3,7 +3,7 @@ import { URL_SERIES_TENDENCIA, URL_SERIES_MEJORES_CRITICAS, URL_SERIES_AIRE, API
 import { cortarArray } from '../utils/helpers'
 import { Flex, Title, Icon } from '../utils/Commons'
 import { Link } from 'react-router-dom'
-import CardMedia from './CardMedia'
+import CardMedia from '../components/CardMedia'
 
 
 const Series = () => {

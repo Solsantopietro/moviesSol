@@ -1,10 +1,13 @@
 import './App.scss';
-import Home from './components/Home';
+import Home from './views/Home';
 import Peliculas from './views/Peliculas';
 import Series from './views/Series';
-import Detalle from './views/Detalle';
-import CatalogueSection from './views/CatalogueSection';
-
+import Detalle from './components/Detalle';
+import CategorySection from './views/CategorySection';
+import Info from './components/Info'
+import Cast from './components/Cast'
+import Video from './components/Video'
+import Similar from './components/Similar'
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
@@ -84,8 +87,11 @@ const App = () => {
                   <Route exact path="/peliculas" component={Peliculas} />
                   <Route exact path="/series" component={Series} />
                   <Route exact path="/detalle/:id/:type" component={Detalle} />
-                  <Route exact path="/:type/:catalogue" component={CatalogueSection} />
-
+                  <Route exact path="/:type/:category" component={CategorySection} />
+                  <Route exact path="/:id/:type/info" component={Info} />
+                  <Route exact path="/:id/:type/cast" component={Cast} />
+                  <Route exact path="/:id/:type/video" component={Video} />
+                  <Route exact path="/:id/:type/similar" component={Similar} />
                 </Switch>
               </BrowserRouter>
             </>

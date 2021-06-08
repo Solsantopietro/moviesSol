@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { cortarArray } from '../utils/helpers'
 import { APIKEY } from '../utils/variables'
-import { Flex, Title, Icon } from '../utils/Commons'
+import { Flex, Title, Icon, Backdrop} from '../utils/Commons'
 
 import styled, { ThemeProvider } from 'styled-components'
 

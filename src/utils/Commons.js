@@ -22,3 +22,12 @@ export const Icon = styled.svg`
 
 }
 `
+
+export const Backdrop = styled.div`
+  width: auto;
+  height: 600px;
+  background-image: linear-gradient(90deg, rgb(0, 0, 0) 0px, transparent 50%, transparent), url("https://image.tmdb.org/t/p/original${props => props.img}");
+  background-size: cover;
+  background-position: center center; 
+
+`;

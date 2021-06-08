@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { cortarArray } from '../utils/helpers'
 import { APIKEY } from '../utils/variables'
-import { Flex, Title, Icon } from '../utils/Commons'
+import { Flex, Title, Icon, Backdrop} from '../utils/Commons'
+
 
 import styled, { ThemeProvider } from 'styled-components'
 
@@ -18,7 +19,7 @@ const ImageProfile = styled.img`
     height: 350px;
     &:hover {
     transform: scale(1.05);
-    transition: all 0.3s;
+    transition: bottom 0.3s;
   }
 `
 
@@ -39,12 +40,12 @@ useEffect(() => {
 
     return(
         <SectionCast>
-            {reparto.map(persona =>
+           <Backdrop/>
             <article>
-                <ImageProfile src={`https://image.tmdb.org/t/p/w370_and_h556_bestv2${persona.profile_path}`} />
-                <Title  font-size="">{persona.name}</Title>
+                {/* <ImageProfile src={`https://image.tmdb.org/t/p/w370_and_h556_bestv2${persona.profile_path}`} /> */}
+                <Title  font-size="">aaaaaaaaaaa</Title>
             </article>
-            )}
+            
         </SectionCast>
     )
 }

@@ -1,4 +1,4 @@
-import CardMedia from './CardMedia'
+import CardMedia from '../components/CardMedia'
 import useFetch from '../hooks/useFetch'
 import { URL_PELICULAS_TENDENCIA, URL_PELICULAS_MEJORES_CRITICAS, URL_PELICULAS_ESTRENO, URL_PELICULAS_CINES, APIKEY } from '../utils/variables'
 import { cortarArray } from '../utils/helpers'
