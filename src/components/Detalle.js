@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { APIKEY } from '../utils/variables'
 import { Flex, Title, Icon, Backdrop} from '../utils/Commons'
-
 import styled from 'styled-components'
 import Info from './Info'
 import Cast from './Cast'
@@ -10,13 +9,16 @@ import Video from './Video'
 import Similar from './Similar'
 
 const SectionDetail = styled.section`
-Link {
-
-}
+  .Info{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
 `
 const StyledLink = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 30px;
     a{
       margin: 10px;
       font-weight: 500;
@@ -60,17 +62,17 @@ return(
         <Link to={`/${params.type}/${params.id}/videos`}>VIDEOS</Link>
         <Link to={`/${params.type}/${params.id}/similar`}>SIMILARES</Link>
       </StyledLink>
-
+<div className="Info">
     <Info 
         imgUrl={detalle.poster_path}
-        title={detalle.title}
+        title={detalle.title || detalle.name}
         overview={detalle.overview}
         runtime={detalle.runtime || detalle.episode_run_time}
         budget={detalle.budget}
         revenue={detalle.revenue}
         onclick={handleClick}
     />
-  
+  </div>
 
 
     

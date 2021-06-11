@@ -1,5 +1,33 @@
 import styled from "styled-components"
 
+export const Sections = styled.section`
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+
+export const SectionMedia = styled.section`
+display: flex;
+flex-direction: column;
+max-width: 1400px;
+justify-content: center;
+margin-top: 60px;
+
+  @media  (max-width: 1400px) {
+    justify-content: center;
+
+  }
+    
+`
+export const Cards = styled.section`
+  display: flex;
+  @media  (max-width: 1400px) {
+    justify-content: center;
+      flex-wrap: wrap;
+    }
+`
+
+
 export const Flex = styled.div`
   display: flex;
   justify-content: center;
@@ -8,15 +36,19 @@ export const Flex = styled.div`
 `
 
 export const Title = styled.h1`
-  margin-left: 150px;
+  margin: auto;
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.families.h2};
   font-weight: ${({ theme }) => theme.fonts.weight.medium};
   font-size: ${({ theme }) => theme.fonts.size.h1 || theme.fonts.size.h2};
+  @media (max-width: 1400px){
+
+  }
 `
 export const Icon = styled.svg`
   color: ${({ theme }) => theme.colors.secondary};
   width: 30px;
+  margin-left: 10px;
   &:hover{
     color: ${({ theme }) => theme.colors.primary};
 
@@ -31,3 +63,13 @@ export const Backdrop = styled.div`
   background-position: center center; 
 
 `;
+
+// export const Icon = styled.div`
+//     color: ${({ theme }) => theme.colors.primary};
+//     width: 30px;
+//     margin: 10px;
+//   &:active{
+//     color: ${({ theme }) => theme.colors.secondary};
+
+//   }
+// `

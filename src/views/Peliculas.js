@@ -4,7 +4,7 @@ import { URL_PELICULAS_TENDENCIA, URL_PELICULAS_MEJORES_CRITICAS, URL_PELICULAS_
 import { cortarArray } from '../utils/helpers'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from '../styles/theme'
-import { Flex, Title, Icon } from '../utils/Commons'
+import { Flex, Title, Icon, SectionMedia, Cards, Sections } from '../utils/Commons'
 import { Link } from 'react-router-dom'
 
 
@@ -27,15 +27,16 @@ const Peliculas = () => {
   return (
     <ThemeProvider theme={theme}>
 
-      <section className="Peliculas">
-        <div className="PeliculasPopulares">
+      <Sections className="Peliculas">
+        <SectionMedia className="PeliculasPopulares">
           <Link><Title>Peliculas populares
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
           </Title></Link>
           <Flex>
-            {filtradoDePeliculasTendencia.map(pelicula =>
+            <Cards>
+              {filtradoDePeliculasTendencia.map(pelicula =>
               <CardMedia
                 key={pelicula.id}
                 id={pelicula.id}
@@ -45,16 +46,19 @@ const Peliculas = () => {
 
               />
             )}
+            </Cards>
+            
           </Flex>
 
-        </div>
-        <div className="PeliculasCriticas">
+        </SectionMedia>
+        <SectionMedia className="PeliculasCriticas">
           <Link><Title>Peliculas con mejores criticas
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
           </Title></Link>
           <Flex>
+            <Cards>
             {filtradoDePeliculasCriticas.map(pelicula =>
               <CardMedia
                 key={pelicula.id}
@@ -65,16 +69,18 @@ const Peliculas = () => {
 
               />
             )}
+            </Cards>
           </Flex>
 
-        </div>
-        <div className="PeliculasEstreno">
+        </SectionMedia>
+        <SectionMedia className="PeliculasEstreno">
           <Link><Title>Peliculas a estrenarse
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
           </Title></Link>
           <Flex>
+          <Cards>
             {filtradoDePeliculasEstreno.map(pelicula =>
               <CardMedia
                 key={pelicula.id}
@@ -85,16 +91,18 @@ const Peliculas = () => {
 
               />
             )}
+            </Cards>
           </Flex>
 
-        </div>
-        <div className="PeliculasCines">
+        </SectionMedia>
+        <SectionMedia className="PeliculasCines">
           <Link><Title>Peliculas en cines
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
           </Title></Link>
           <Flex>
+          <Cards>
             {filtradoDePeliculasCines.map(pelicula =>
               <CardMedia
                 key={pelicula.id}
@@ -105,11 +113,12 @@ const Peliculas = () => {
 
               />
             )}
+          </Cards>
           </Flex>
 
-        </div>
+        </SectionMedia>
 
-      </section>
+      </Sections>
     </ThemeProvider>
   )
 }

@@ -1,7 +1,7 @@
 import useFetch from '../hooks/useFetch'
 import { URL_SERIES_TENDENCIA, URL_SERIES_MEJORES_CRITICAS, URL_SERIES_AIRE, APIKEY } from '../utils/variables'
 import { cortarArray } from '../utils/helpers'
-import { Flex, Title, Icon } from '../utils/Commons'
+import { Flex, Title, Icon, SectionMedia, Cards, Sections } from '../utils/Commons'
 import { Link } from 'react-router-dom'
 import CardMedia from '../components/CardMedia'
 
@@ -17,15 +17,16 @@ const Series = () => {
   const filtradoDeSeriesCriticas = cortarArray(seriesCriticas)
   const filtradoDeSeriesEstreno = cortarArray(seriesAire)
   return (
-    <section className="Series">
-      <div className="SeriesPopulares">
+    <Sections className="Series">
+      <SectionMedia className="SeriesPopulares">
         <Link><Title>Series populares
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </Icon>
         </Title></Link>
         <Flex>
-          {filtradoDeSeriesTendencia.map(serie =>
+          <Cards>
+           {filtradoDeSeriesTendencia.map(serie =>
             <CardMedia
               key={serie.id}
               id={serie.id}
@@ -33,17 +34,20 @@ const Series = () => {
               image={serie.poster_path}
               name={serie.name}
             />
-          )}
+          )} 
+          </Cards>
+          
         </Flex>
-      </div>
-      <div className="SeriesCriticas">
+      </SectionMedia>
+      <SectionMedia className="SeriesCriticas">
         <Link><Title>Series con mejores criticas
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </Icon>
         </Title></Link>
         <Flex>
-          {filtradoDeSeriesCriticas.map(serie =>
+          <Cards>
+{filtradoDeSeriesCriticas.map(serie =>
             <CardMedia
               key={serie.id}
               id={serie.id}
@@ -52,15 +56,18 @@ const Series = () => {
               name={serie.name}
             />
           )}
+          </Cards>
+          
         </Flex>
-      </div>
-      <div className="SeriesEstreno">
+      </SectionMedia>
+      <SectionMedia className="SeriesEstreno">
         <Link><Title>Series a estrenarse
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </Icon>
         </Title></Link>
         <Flex>
+          <Cards>
           {filtradoDeSeriesEstreno.map(serie =>
             <CardMedia
               key={serie.id}
@@ -70,9 +77,10 @@ const Series = () => {
               name={serie.name}
             />
           )}
+          </Cards>
         </Flex>
-      </div>
-    </section>
+      </SectionMedia>
+    </Sections>
   )
 }
 

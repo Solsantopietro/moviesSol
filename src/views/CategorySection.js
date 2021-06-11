@@ -4,8 +4,8 @@
 
 // const CategorySection = () => {
 
-//     const params = useParams()
-//     const [category, setCategory] = useState([])
+//   const params = useParams()
+//   const [category, setCategory] = useState([])
 
 //     useEffect(() => {
 //         fetch(`https://api.themoviedb.org/3/${params.type}/${params.catalogue}/Catalogue?api_key=${APIKEY}&language=es-ES`)
@@ -14,6 +14,10 @@
 //         }, [])
 //         console.log(catalogue)
 
+  
+//   }
+//   categoryMedia()
+  
 //     return(
 //       <div>
 //         {category.map(algo =>
@@ -22,8 +26,7 @@
 //             <h1>{algo.name}</h1>
 //           </div>
 //         )} 
-//        </div>
-        
+//        </div> 
 //     )
 // }
 

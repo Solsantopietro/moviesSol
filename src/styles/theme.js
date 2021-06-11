@@ -13,7 +13,7 @@ export const theme = {
         size: {
             h1: '32px',
             h2: '20px',
-            p: '10px',
+            p: '14px',
         },
         weight: {
             min: '100',
@@ -21,9 +21,5 @@ export const theme = {
             max: '500',
         }
     },
-    // cards: {
-    //     width: '250px',
-    //     height: '400px',
-    //     margin: '10px',
-    // },
+    
 }

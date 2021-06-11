@@ -17,4 +17,3 @@ export const URL_SERIES_MEJORES_CRITICAS = 'https://api.themoviedb.org/3/tv/top_
 export const convertirAMayusculas = string => {
     return string.toUpperCase()
 }
-

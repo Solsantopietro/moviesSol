@@ -4,18 +4,21 @@ import {Link} from 'react-router-dom'
 
 
 const StyledCard = styled.article`
-    width: 260px;
-    height: 450px;
-    margin: 10px;
+  max-width: 264px;
+  max-height: 500px;
+  margin: 5px;
+  overflow: hidden;
+margin-top: 20px;
 `
 const Image = styled.img`
     width: 100%;
     height: 80%;
     &:hover {
     transform: scale(1.05);
-    transition: all 0.3s;
+    transition:  0.3s;
   }
 `
+
 
 const Title = styled.h2`
     color: ${({ theme }) => theme.colors.text};
