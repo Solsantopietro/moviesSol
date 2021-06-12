@@ -1,21 +1,29 @@
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from '../styles/theme'
 import {Link} from 'react-router-dom'
+import img from "../assets/not-found.jpg"
 
 
 const StyledCard = styled.article`
-    width: 260px;
-    height: 450px;
-    margin: 10px;
+  max-width: 264px;
+  max-height: 500px;
+  margin: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+  .notFoundImage{
+    width: 264px;
+    height: 396px;
+  }
 `
 const Image = styled.img`
     width: 100%;
     height: 80%;
     &:hover {
     transform: scale(1.05);
-    transition: all 0.3s;
+    transition:  0.3s;
   }
 `
+
 
 const Title = styled.h2`
     color: ${({ theme }) => theme.colors.text};
@@ -27,13 +35,15 @@ const Title = styled.h2`
   }
 `
 
-
-const CardMedia = ({ title, image, name, id, type }) => {
+const CardMedia = ({ title, image, name, id, type, vote }) => {
     return (
       <ThemeProvider theme={theme}>
         <Link to={`/detalle/${id}/${type}`}>
           <StyledCard className="CardMedia">
+            {image === null ? 
+            <Image classname="notFoundImage" src={img}/> :
             <Image src={`https://image.tmdb.org/t/p/w500${image}`}/>
+            }
             <Title>{title || name}</Title>
         </StyledCard>
         </Link>
