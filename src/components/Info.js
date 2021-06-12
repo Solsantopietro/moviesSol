@@ -1,6 +1,11 @@
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Link, Switch, useParams } from 'react-router-dom'
+import { APIKEY } from '../utils/variables'
+
 import styled, { ThemeProvider } from 'styled-components'
 import { Flex, Title } from '../utils/Commons'
 import { theme } from '../styles/theme'
+
 
 
 const SectionInfo = styled.section`
@@ -44,21 +49,33 @@ const Paragraph = styled.p`
 
 `
 
-const Info = ({ imgUrl, title, overview, runtime, budget, revenue }) => {
+const Info = ({ imgUrl }) => {
+  const [info, setInfo] = useState({})
+
+  const params = useParams()
+
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/${params.type}/${params.id}?api_key=${APIKEY}&language=es-ES`)
+      .then(res => res.json())
+      .then(data => setInfo(data))
+  }, [])
+
     return(
     <SectionInfo>
       <ThemeProvider theme={theme}>
         <ImgPoster src={`https://image.tmdb.org/t/p/original${imgUrl}`}/>
         <Description>
         <div className="Title">
-          <Title>{title}</Title>
+          <Title>{info.title}</Title>
         </div>
         <div className="Details">
-          <Paragraph>{overview}</Paragraph>
-          <Paragraph>Duracion: {runtime} min.</Paragraph>
+          <Paragraph>Puntuacion: {info.vote_average}</Paragraph>
+          <Paragraph>{info.overview}</Paragraph>
+          <Paragraph>Duracion: {info.runtime} min.</Paragraph>
           <Paragraph>Generos: </Paragraph>
-          <Paragraph>Presupuesto: ${budget}</Paragraph>
-          <Paragraph>Recaudacion: ${revenue}</Paragraph>
+          <Paragraph>Presupuesto: ${info.budget}</Paragraph>
+          <Paragraph>Recaudacion: ${info.revenue}</Paragraph>
           <Paragraph>Produccion: </Paragraph> 
         </div>
         

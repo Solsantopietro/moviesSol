@@ -29,7 +29,7 @@ const Peliculas = () => {
 
       <Sections className="Peliculas">
         <SectionMedia className="PeliculasPopulares">
-          <Link><Title>Peliculas populares
+          <Link to={`/movie/popular/page/1`}><Title>Peliculas populares
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
@@ -52,7 +52,7 @@ const Peliculas = () => {
 
         </SectionMedia>
         <SectionMedia className="PeliculasCriticas">
-          <Link><Title>Peliculas con mejores criticas
+          <Link to={`/movie/top_rated/page/1`}><Title>Peliculas con mejores criticas
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
@@ -74,7 +74,7 @@ const Peliculas = () => {
 
         </SectionMedia>
         <SectionMedia className="PeliculasEstreno">
-          <Link><Title>Peliculas a estrenarse
+          <Link to={`/movie/upcoming/page/1`}><Title>Peliculas a estrenarse
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
@@ -96,7 +96,7 @@ const Peliculas = () => {
 
         </SectionMedia>
         <SectionMedia className="PeliculasCines">
-          <Link><Title>Peliculas en cines
+          <Link to={`/movie/now_playing/page/1`}><Title>Peliculas en cines
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>

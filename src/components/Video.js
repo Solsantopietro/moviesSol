@@ -14,15 +14,17 @@ const Videos = () => {
 useEffect(() => {
     fetch(`https://api.themoviedb.org/3/${params.type}/${params.id}/video?api_key=${APIKEY}&language=es-ES`)
     .then(res => res.json())
-    .then(data => setVideo(data.cast))
-    console.log(params)
+    .then(data => setVideo(data.results))
 }, [])
+console.log(video)
 
 console.log()
 
     return(
         <section>
-            <h1>SOY VIDEOS</h1>
+           
+            <h1>video</h1>
+            
         </section>
     )
 }

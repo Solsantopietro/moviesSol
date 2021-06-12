@@ -5,6 +5,23 @@ display: flex;
 flex-direction: column;
 align-items: center;
 `
+export const SectionResults = styled.section`
+display: flex;
+flex-direction: column;
+max-width: 1000px;
+h1 {
+color: ${({ theme }) => theme.colors.text};
+font-family: ${({ theme }) => theme.fonts.families.h1};
+font-weight: ${({ theme }) => theme.fonts.weight.min};
+font-size: ${({ theme }) => theme.fonts.size.h1};
+}
+`
+export const CardsResults = styled.section`
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+max-width: 1400px;
+`
 
 export const SectionMedia = styled.section`
 display: flex;

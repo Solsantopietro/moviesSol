@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { theme } from '../styles/theme'
 import { Flex, Title, Icon, SectionMedia, Cards, Sections } from '../utils/Commons'
 import { Link } from 'react-router-dom'
+import CategorySectionTrending from './CategorySectionTrending';
 
 const Home = () => {
 
@@ -18,7 +19,7 @@ const Home = () => {
     <Sections className="Home">
       <ThemeProvider theme={theme}>
         <SectionMedia className="sectionMovie">
-          <Link to={`/movie/trending`}><Title>Películas que son tendencia
+          <Link to={`/movie/popular/page/1`}><Title>Películas que son tendencia
           <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </Icon></Title>
@@ -40,7 +41,7 @@ const Home = () => {
           </Flex>
         </SectionMedia>
         <SectionMedia className="sectionTv">
-        <Link to={`/tv/trending`}><Title>Series que son tendencia
+        <Link to={`/tv/popular/page/1`}><Title>Series que son tendencia
             <Icon xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </Icon>
